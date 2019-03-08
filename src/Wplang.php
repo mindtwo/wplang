@@ -94,7 +94,6 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 	protected function getTranslations( PackageInterface $package ) {
 
 		try {
-
 			$t = new \stdClass();
 
 			list( $provider, $name ) = explode( '/', $package->getName(), 2 );
@@ -106,8 +105,8 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 				case 'wordpress-theme':
 					$t = new Translatable( 'theme', $name, $package->getVersion(), $this->languages, $this->wpLanguageDir );
 					break;
-				case 'package':
-					if ( 'johnpbloch' === $provider && 'wordpress' === $name ) {
+				case 'package': case 'wordpress-core':
+					if ( 'roots' === $provider && 'wordpress' === $name ) {
 						$t = new Translatable( 'core', $name, $package->getVersion(), $this->languages, $this->wpLanguageDir );
 					}
 					break;
