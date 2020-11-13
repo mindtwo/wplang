@@ -8,6 +8,7 @@ use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Installer\PackageEvent;
+use Composer\DependencyResolver\Operation\InstallOperation;
 use Composer\Package\PackageInterface;
 
 class Wplang implements PluginInterface, EventSubscriberInterface {
@@ -42,7 +43,6 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 	public function activate( Composer $composer, IOInterface $io ) {
 		$this->composer = $composer;
 		$this->io = $io;
-
 		$extra = $this->composer->getPackage()->getExtra();
 
 		if ( ! empty( $extra['wordpress-languages'] ) ) {
@@ -77,10 +77,11 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 	 * @param  PackageEvent $event The package event object.
 	 */
 	public function onPackageAction( PackageEvent $event ) {
-        if ( 'update' === $event->getOperation()->getJobType() ) {
-            $package = $event->getOperation()->getTargetPackage();
+        $op = $event->getOperation();
+        if ( 'update' === $op->getOperationType() ) {
+            $package = $op->getTargetPackage();
         } else {
-            $package = $event->getOperation()->getPackage();
+            $package = $op->getPackage();
         }
 		$this->getTranslations( $package );
 	}
@@ -133,5 +134,14 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 
 	}
 
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement deactivate() method.
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement uninstall() method.
+    }
 }
 

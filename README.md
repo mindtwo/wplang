@@ -1,13 +1,13 @@
-# bjornjohansen/wplang
+# FacundoCerezo/wplang
 
-Composer plugin to download translation files for WordPress core, plugins and themes from wordpress.org.
+Composer plugin to download translation files for WordPress core, plugins and themes from wordpress.org. Updated for Composer 2 and based in the [original repository by @bjornjohansen](https://github.com/bjornjohansen/wplang).
 
 ## Installation
 
 First run:
 
 ```
-composer require bjornjohansen/wplang
+composer require facundocerezo/wplang
 ```
 
 Then you’ll have to edit your `composer.json` file. You need to add the following section:
