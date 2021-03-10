@@ -1,6 +1,6 @@
 <?php
 
-namespace BJ\Wplang;
+namespace Mirai\Wplang;
 
 use Composer\Composer;
 use Composer\Script\Event;
@@ -72,7 +72,7 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 	}
 
 	/**
-	 * Our callback for the post-package-install|update events.
+	 * Our callback for the post-package-install event.
 	 *
 	 * @param  PackageEvent $event The package event object.
 	 */
@@ -128,7 +128,7 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 				}
 			}
 		} catch ( \Exception $e ) {
-			$this->io->writeError( $e->getMessage() );
+			$this->io->writeError( 'ERROR: ' . $e->getMessage() );
 		}
 
 	}
@@ -143,4 +143,3 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
         // TODO: Implement uninstall() method.
     }
 }
-
