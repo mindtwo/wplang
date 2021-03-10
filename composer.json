@@ -1,5 +1,5 @@
 {
-    "name": "facundocerezo/wplang",
+    "name": "mindtwo/wplang",
     "description": "Composer plugin to download translation files from wordpress.org",
     "version": "0.2",
     "license": "GPL-2.0+",
