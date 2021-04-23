@@ -8,11 +8,7 @@ Composer plugin to download translation files for WordPress core, plugins and th
 First run:
 
 ```
-<<<<<<< HEAD
 composer require mindtwo/wplang
-=======
-composer require mirai-wordpress/wplang
->>>>>>> old/master
 ```
 
 Edit your `composer.json` file, and add this lines at the following section:
