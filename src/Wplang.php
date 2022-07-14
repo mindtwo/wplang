@@ -106,7 +106,7 @@ class Wplang implements PluginInterface, EventSubscriberInterface {
 					$t = new Translatable( 'theme', $name, $package->getVersion(), $this->languages, $this->wpLanguageDir );
 					break;
 				case 'package': case 'wordpress-core':
-					if ( in_array($provider, ['roots', 'johnpbloch']) && in_array($name, ['wordpress', 'wordpress-core']) ) {
+					if ( in_array($provider, ['roots', 'johnpbloch']) && in_array($name, ['wordpress', 'wordpress-no-content', 'wordpress-full', 'wordpress-core']) ) {
 						$t = new Translatable( 'core', $name, $package->getVersion(), $this->languages, $this->wpLanguageDir );
 					}
 					break;
